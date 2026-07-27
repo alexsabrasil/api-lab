@@ -70,4 +70,27 @@ app.get('/alunos/:id', (req, res) => {
   res.json(aluno);
 });
 
+app.put('/alunos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const { nome, curso } = req.body;
+
+  const alunoIndex = alunos.findIndex(a => a.id === id);
+
+  if (alunoIndex === -1) {
+    return res.status(404).json({
+      erro: 'Aluno não encontrado.'
+    });
+  }
+
+  if (nome) {
+    alunos[alunoIndex].nome = nome;
+  }
+
+  if (curso) {
+    alunos[alunoIndex].curso = curso;
+  }
+
+  res.json(alunos[alunoIndex]);
+});
+
 module.exports = app;

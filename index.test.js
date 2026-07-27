@@ -70,5 +70,15 @@ it('deve retornar 404 ao buscar aluno inexistente (GET /alunos/:id)', async () =
 
   expect(res.statusCode).toEqual(404);
 });
- 
+
+it('deve atualizar os dados de um aluno (PUT /alunos/:id)', async () => {
+  const res = await request(app)
+    .put(`/alunos/${novoAlunoId}`)
+    .send({ nome: 'Carlos da Silva' });
+
+  expect(res.statusCode).toEqual(200);
+  expect(res.body.nome).toEqual('Carlos da Silva');
+  expect(res.body.curso).toEqual('Computação');
+});
+
 });
