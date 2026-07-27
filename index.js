@@ -12,6 +12,25 @@ let alunos = [
 
 let nextId = 3;
 
+app.post('/alunos', (req, res) => {
+  const { nome, curso } = req.body;
+
+  if (!nome || !curso) {
+    return res.status(400).json({
+      erro: 'Nome e curso são obrigatórios.'
+    });
+  }
+
+  const novoAluno = {
+    id: nextId++,
+    nome,
+    curso
+  };
+
+  alunos.push(novoAluno);
+  res.status(201).json(novoAluno);
+});
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`API de alunos rodando em http://localhost:${port}`);
