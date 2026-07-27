@@ -81,4 +81,20 @@ it('deve atualizar os dados de um aluno (PUT /alunos/:id)', async () => {
   expect(res.body.curso).toEqual('Computação');
 });
 
+it('deve deletar um aluno (DELETE /alunos/:id)', async () => {
+  const res = await request(app)
+    .delete(`/alunos/${novoAlunoId}`);
+
+  expect(res.statusCode).toEqual(200);
+  expect(res.body).toHaveProperty('mensagem');
+  expect(res.body.aluno.id).toEqual(novoAlunoId);
+});
+
+it('deve retornar 404 ao tentar deletar aluno inexistente', async () => {
+  const res = await request(app)
+    .delete(`/alunos/${novoAlunoId}`);
+
+  expect(res.statusCode).toEqual(404);
+});
+
 });

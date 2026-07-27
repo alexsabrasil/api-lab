@@ -93,4 +93,22 @@ app.put('/alunos/:id', (req, res) => {
   res.json(alunos[alunoIndex]);
 });
 
+app.delete('/alunos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const alunoIndex = alunos.findIndex(a => a.id === id);
+
+  if (alunoIndex === -1) {
+    return res.status(404).json({
+      erro: 'Aluno não encontrado.'
+    });
+  }
+
+  const alunoRemovido = alunos.splice(alunoIndex, 1);
+
+  res.json({
+    mensagem: 'Aluno removido com sucesso.',
+    aluno: alunoRemovido[0]
+  });
+});
+
 module.exports = app;
