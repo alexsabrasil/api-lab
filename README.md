@@ -1,34 +1,47 @@
 # API-Lab
 
-API REST desenvolvida em **Node.js** para gerenciamento de alunos, utilizando **Git Flow**, **testes automatizados com Jest** e **Integração Contínua (CI/CD)** com **GitLab CI**.
+> API REST desenvolvida em Node.js para gerenciamento de alunos, utilizando Git Flow, testes automatizados com Jest e Integração Contínua (CI/CD) com GitLab.
 
 ---
 
-# Objetivo
+## Sobre o projeto
 
-Este projeto foi desenvolvido como atividade prática da formação em DevOps, com foco na aplicação de conceitos de:
+O **API-Lab** foi desenvolvido como atividade prática da formação em DevOps, com o objetivo de aplicar conceitos de versionamento, Git Flow, testes automatizados e integração contínua.
 
-- Git Flow
-- Versionamento distribuído
-- Testes automatizados
-- Integração Contínua (CI)
-- Pipeline GitLab CI/CD
+Durante o desenvolvimento foram implementadas funcionalidades seguindo um fluxo semelhante ao utilizado em equipes profissionais de desenvolvimento de software.
 
 ---
 
-# Tecnologias
+## Tecnologias utilizadas
 
-- Node.js
-- Express
-- Jest
-- ESLint
-- Git
-- Git Flow
-- GitLab CI/CD
+| Tecnologia | Finalidade |
+|------------|------------|
+| Node.js | Backend |
+| Express | API REST |
+| Jest | Testes automatizados |
+| ESLint | Qualidade do código |
+| Git | Versionamento |
+| Git Flow | Estratégia de branches |
+| GitLab CI/CD | Pipeline de Integração Contínua |
+| GitHub | Portfólio do projeto |
 
 ---
 
-# Estrutura do projeto
+## Arquitetura
+
+```text
+Cliente
+    │
+    ▼
+API REST (Express)
+    │
+    ▼
+Dados em memória
+```
+
+---
+
+## Estrutura do projeto
 
 ```
 api-lab
@@ -45,134 +58,127 @@ api-lab
 
 ---
 
-# Git Flow
+## Git Flow
 
-Durante o desenvolvimento foram utilizadas as seguintes branches:
+O desenvolvimento foi organizado utilizando Git Flow.
 
 ```
 main
+
 develop
 
 feature/setup-inicial
+
 feature/criar-aluno
+
 feature/listar-alunos
+
 feature/atualizar-aluno
+
 feature/deletar-aluno
+
 docs/readme
 ```
 
-Cada funcionalidade foi desenvolvida em sua própria branch e posteriormente integrada à branch **develop**.
+Cada funcionalidade foi implementada em uma branch específica e posteriormente integrada à branch **develop**.
 
 ---
 
-# Funcionalidades
+## Funcionalidades
 
-A API implementa operações CRUD para gerenciamento de alunos.
+### Cadastro
 
-## Criar aluno
+- Criar aluno
 
-```
-POST /alunos
-```
+### Consulta
 
-## Listar alunos
+- Listar alunos
+- Buscar aluno por ID
+- Filtrar por nome
+- Filtrar por curso
 
-```
-GET /alunos
-```
+### Atualização
 
-## Buscar aluno por ID
+- Atualizar dados
 
-```
-GET /alunos/:id
-```
+### Remoção
 
-## Atualizar aluno
-
-```
-PUT /alunos/:id
-```
-
-## Remover aluno
-
-```
-DELETE /alunos/:id
-```
-
-Também foram implementados filtros por:
-
-- nome
-- curso
+- Excluir aluno
 
 ---
 
-# Testes Automatizados
+## Testes Automatizados
 
-O projeto utiliza **Jest** para validação da API.
+Foram implementados testes utilizando **Jest**.
 
-Foram implementados testes para:
+Cobertura funcional:
 
-- criação de alunos;
-- validação de campos obrigatórios;
-- listagem;
-- filtros;
-- consulta por ID;
-- atualização;
-- exclusão;
-- tratamento de registros inexistentes.
+- Cadastro
+- Validações
+- Consulta
+- Filtros
+- Atualização
+- Exclusão
+- Tratamento de erros
 
 Resultado final:
 
 ```
 Test Suites: 1 passed
+
 Tests: 10 passed
 ```
 
 ---
 
-# Pipeline GitLab CI
+## Pipeline GitLab CI
 
-A pipeline possui quatro estágios:
+A Integração Contínua foi implementada utilizando GitLab CI.
+
+### Estágios
 
 ```
 security
+
 build
+
 quality
+
 test
 ```
 
-Jobs executados:
+### Jobs
 
 - security-sast
 - build
 - lint-and-quality
 - test
 
-Todas as etapas foram executadas com sucesso.
+Pipeline executada com sucesso.
 
 ---
 
-# Como executar
+## Como executar
 
-Instalar dependências
+### Instalar dependências
 
 ```bash
 npm install
 ```
 
-Executar aplicação
+### Executar aplicação
 
 ```bash
 node index.js
 ```
 
-Executar testes
+### Executar testes
 
 ```bash
 npm test
 ```
 
-Executar lint
+### Executar análise de código
 
 ```bash
 npm run lint
@@ -180,12 +186,12 @@ npm run lint
 
 ---
 
-# Competências demonstradas
+## Competências demonstradas
 
 - Desenvolvimento de API REST
-- Git Flow
 - Versionamento com Git
-- Integração Contínua (CI)
+- Git Flow
+- Integração Contínua
 - GitLab CI/CD
 - Testes Automatizados
 - ESLint
@@ -193,17 +199,40 @@ npm run lint
 
 ---
 
-# Autora
+## Evolução do projeto
 
-**Alê Tavares **
+Próximas implementações planejadas:
 
-Estudante de Engenharia de Software
+- Frontend em React
+- Banco de dados PostgreSQL
+- Docker Compose
+- Swagger/OpenAPI
+- Autenticação JWT
+- Deploy em ambiente cloud
+- Dashboard Web
 
-Tecnóloga em Segurança da Informação
+---
 
-Residente em Cibersegurança
+## Repositórios
 
-Formação DevOps – Aponti Academy
+**GitHub**
+
+> Portfólio do projeto
+
+**GitLab**
+
+> Pipeline CI/CD
+
+---
+
+## Autora
+
+**Alê Tavares**
+
+- Engenharia de Software
+- Tecnóloga em Segurança da Informação
+- Residente em Cibersegurança
+- Formação DevOps
 
 ---
 
