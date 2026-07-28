@@ -1,0 +1,55 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" &&
+           ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+            $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop")'
+
+    - if: '$CI_COMMIT_BRANCH == "main" ||
+           $CI_COMMIT_BRANCH == "develop"'
+
+    - when: never
+
+stages:
+  - security
+  - build
+  - quality
+  - test
+
+default:
+  image: node:24
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+
+security-sast:
+  stage: security
+  image: python:3.10-slim
+  script:
+    - pip install njsscan
+    - njsscan .
+
+build:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+lint-and-quality:
+  stage: quality
+  needs:
+    - job: build
+      artifacts: true
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  needs:
+    - job: build
+      artifacts: true
+  script:
+    - npm test
