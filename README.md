@@ -195,7 +195,7 @@ npm run lint
 
 # Autora
 
-**Alê Tavares **
+**Alê Tavares**
 
 Estudante de Engenharia de Software
 
