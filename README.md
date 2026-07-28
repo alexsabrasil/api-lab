@@ -1,36 +1,75 @@
-# API-Lab
+<p align="center">
+  <img src="docs/images/api-lab-banner.png" alt="API-Lab Banner" width="100%">
+</p>
 
-API REST desenvolvida em **Node.js** para gerenciamento de alunos, utilizando **Git Flow**, **testes automatizados com Jest** e **Integração Contínua (CI/CD)** com **GitLab CI**.
+<h1 align="center">API-Lab</h1>
+
+<p align="center">
+  API REST desenvolvida em <strong>Node.js</strong> utilizando <strong>Git Flow</strong>,
+  <strong>Jest</strong> e <strong>GitLab CI/CD</strong>.
+</p>
+
+<p align="center">
+
+![Node.js](https://img.shields.io/badge/Node.js-24-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-API-000000?logo=express&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Git%20Flow-F05032?logo=git&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-10%20Testes-C21325?logo=jest&logoColor=white)
+![GitLab](https://img.shields.io/badge/GitLab-CI%2FCD-FC6D26?logo=gitlab&logoColor=white)
+![Pipeline](https://img.shields.io/badge/Pipeline-Passed-success)
+
+</p>
 
 ---
 
-# Objetivo
+# Sobre o Projeto
 
-Este projeto foi desenvolvido como atividade prática da formação em DevOps, com foco na aplicação de conceitos de:
+O **API-Lab** é uma API REST desenvolvida em **Node.js** como projeto prático da formação em DevOps.
+
+O objetivo foi aplicar conceitos utilizados em ambientes profissionais, incluindo:
 
 - Git Flow
 - Versionamento distribuído
+- Desenvolvimento de API REST
 - Testes automatizados
 - Integração Contínua (CI)
 - Pipeline GitLab CI/CD
+- Qualidade de código com ESLint
+
+---
+
+# Arquitetura
+
+```text
+Cliente
+      │
+      ▼
+API REST (Express)
+      │
+      ▼
+Dados em memória
+```
 
 ---
 
 # Tecnologias
 
-- Node.js
-- Express
-- Jest
-- ESLint
-- Git
-- Git Flow
-- GitLab CI/CD
+| Tecnologia | Utilização |
+|------------|------------|
+| Node.js | Backend |
+| Express | API REST |
+| Jest | Testes automatizados |
+| ESLint | Qualidade de código |
+| Git | Versionamento |
+| Git Flow | Estratégia de branches |
+| GitLab CI/CD | Pipeline |
+| GitHub | Portfólio |
 
 ---
 
-# Estrutura do projeto
+# Estrutura do Projeto
 
-```
+```text
 api-lab
 │
 ├── index.js
@@ -40,139 +79,147 @@ api-lab
 ├── eslint.config.js
 ├── .gitignore
 ├── .gitlab-ci.yml
-└── README.md
+├── README.md
+└── docs
+    └── images
+        ├── api-lab-banner.png
+        ├── pipeline-passed.png
+        └── testes-passed.png
 ```
 
 ---
 
 # Git Flow
 
-Durante o desenvolvimento foram utilizadas as seguintes branches:
+O desenvolvimento foi realizado utilizando Git Flow.
 
-```
+## Branches
+
+```text
 main
+
 develop
 
 feature/setup-inicial
+
 feature/criar-aluno
+
 feature/listar-alunos
+
 feature/atualizar-aluno
+
 feature/deletar-aluno
+
 docs/readme
 ```
 
-Cada funcionalidade foi desenvolvida em sua própria branch e posteriormente integrada à branch **develop**.
+Cada funcionalidade foi implementada em sua própria branch e integrada posteriormente à branch **develop**.
 
 ---
 
 # Funcionalidades
 
-A API implementa operações CRUD para gerenciamento de alunos.
+### Cadastro
 
-## Criar aluno
+- Criar aluno
 
-```
-POST /alunos
-```
+### Consulta
 
-## Listar alunos
+- Listar todos os alunos
+- Buscar aluno por ID
+- Filtrar por nome
+- Filtrar por curso
 
-```
-GET /alunos
-```
+### Atualização
 
-## Buscar aluno por ID
+- Atualizar aluno
 
-```
-GET /alunos/:id
-```
+### Exclusão
 
-## Atualizar aluno
-
-```
-PUT /alunos/:id
-```
-
-## Remover aluno
-
-```
-DELETE /alunos/:id
-```
-
-Também foram implementados filtros por:
-
-- nome
-- curso
+- Remover aluno
 
 ---
 
 # Testes Automatizados
 
-O projeto utiliza **Jest** para validação da API.
+Foram implementados testes utilizando **Jest** para validar todas as funcionalidades da API.
 
-Foram implementados testes para:
+Os testes contemplam:
 
-- criação de alunos;
-- validação de campos obrigatórios;
-- listagem;
-- filtros;
-- consulta por ID;
-- atualização;
-- exclusão;
-- tratamento de registros inexistentes.
+- Cadastro
+- Validação de campos obrigatórios
+- Consulta
+- Filtros
+- Atualização
+- Exclusão
+- Tratamento de registros inexistentes
 
-Resultado final:
+Resultado obtido:
 
-```
+```text
 Test Suites: 1 passed
+
 Tests: 10 passed
 ```
 
+<p align="center">
+<img src="docs/images/testes-passed.png" width="85%">
+</p>
+
 ---
 
-# Pipeline GitLab CI
+# Pipeline GitLab CI/CD
 
-A pipeline possui quatro estágios:
+A Integração Contínua foi implementada utilizando GitLab CI.
 
+### Estágios
+
+```text
+Security
+
+Build
+
+Quality
+
+Test
 ```
-security
-build
-quality
-test
-```
 
-Jobs executados:
+### Jobs
 
 - security-sast
 - build
 - lint-and-quality
 - test
 
-Todas as etapas foram executadas com sucesso.
+Resultado:
+
+<p align="center">
+<img src="docs/images/pipeline-passed.png" width="95%">
+</p>
 
 ---
 
 # Como executar
 
-Instalar dependências
+## Instalar dependências
 
 ```bash
 npm install
 ```
 
-Executar aplicação
+## Executar aplicação
 
 ```bash
 node index.js
 ```
 
-Executar testes
+## Executar testes
 
 ```bash
 npm test
 ```
 
-Executar lint
+## Executar ESLint
 
 ```bash
 npm run lint
@@ -180,16 +227,58 @@ npm run lint
 
 ---
 
-# Competências demonstradas
+# Competências Desenvolvidas
 
-- Desenvolvimento de API REST
+- Desenvolvimento Backend
+- API REST
+- Node.js
+- Express
+- Git
 - Git Flow
-- Versionamento com Git
-- Integração Contínua (CI)
 - GitLab CI/CD
 - Testes Automatizados
-- ESLint
-- Boas práticas de desenvolvimento
+- Integração Contínua
+- Qualidade de Código
+
+---
+
+
+# Resultados do Projeto
+
+- ✅ API REST funcional
+- ✅ CRUD completo
+- ✅ 10 testes automatizados aprovados
+- ✅ Git Flow aplicado
+- ✅ Pipeline GitLab CI/CD aprovada
+- ✅ Versionamento com Git
+- ✅ Projeto publicado no GitHub e GitLab
+- ✅ Documentação técnica completa
+
+---
+
+# Próximas Evoluções
+
+O projeto poderá evoluir para uma versão completa contendo:
+
+- Frontend em React
+- PostgreSQL
+- Docker Compose
+- Swagger/OpenAPI
+- JWT Authentication
+- Deploy em Cloud
+- Dashboard Web
+
+---
+
+# Repositórios
+
+### GitHub
+
+Código-fonte e documentação do projeto.
+
+### GitLab
+
+Pipeline CI/CD e fluxo de Integração Contínua.
 
 ---
 
@@ -197,14 +286,13 @@ npm run lint
 
 **Alê Tavares**
 
-Estudante de Engenharia de Software
-
-Tecnóloga em Segurança da Informação
-
-Residente em Cibersegurança
-
-Formação DevOps – Aponti Academy
+- Engenharia de Software
+- Tecnóloga em Segurança da Informação
+- Residente em Cibersegurança
+- Formação DevOps
 
 ---
 
-Projeto desenvolvido para fins acadêmicos e de aprendizado.
+## Licença
+
+Projeto desenvolvido para fins acadêmicos, de estudo e composição de portfólio técnico.
